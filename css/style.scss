@@ -1,0 +1,710 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+}
+
+$yellow-color: #ffb400;
+$black-color: #000;
+$white-color: #fff;
+$gray-color: #999999;
+$bg-color: #232931;
+$light-bg-color: #f8f9fa;
+
+// ================================= DEFAULT CSS ================================= 
+.container{
+    max-width: 1140px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+    position: relative;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.j-cb {
+    justify-content: space-between;
+}
+
+.j-cc {
+    justify-content: center;
+}
+
+.a-ic {
+    align-items: center;
+}
+
+.f-d-c {
+    flex-direction: column;
+}
+
+.f-d-r {
+    flex-direction: row;
+}
+
+.spacing {
+    margin-bottom: 100px;
+}
+
+.min-spacing {
+    margin-bottom: 50px;
+}
+
+.max-spacing {
+    margin-bottom: 150px;
+}
+
+// DEFAULT FONT
+h1 {
+    font-size: 64px;
+    line-height: 76.8px;
+    color: $white-color;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 16px;
+    color: $gray-color;
+}
+
+//  DEFAULT DIV 
+.w-2 {
+    width: 50%;
+}
+
+.w-3 {
+    width: 33.33%;
+}
+
+.w-4 {
+    width: 25%;
+}
+
+.d-2 {
+    width: 20%;
+}
+
+.d-3 {
+    width: 80%;
+}
+
+@mixin aftr {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@mixin iconset {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// DEFAULT BTN
+.btn {
+    padding: 15px;
+    font-size: 16px;
+    background-color: $yellow-color;
+    color: $white-color;
+    border: none;
+    border-radius: 1px;
+    transition: .5s;
+
+    &:hover {
+        color: $black-color;
+        cursor: pointer;
+    }
+}
+
+// ================================= HEADER ================================= 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+
+    .container {
+        background-color: $white-color;
+        padding: 0;
+
+        .logo {
+            color: $white-color;
+            padding: 32px;
+            font-size: 20px;
+            font-weight: 900;
+            background-color: $bg-color;
+        }
+
+        nav {
+            ul {
+                li {
+                    padding: 20px;
+
+                    .home-index{
+                        color: $yellow-color;
+                    }
+
+                    a {
+                        color: $black-color;
+                        letter-spacing: 1px;
+                        transition: .5s;
+
+                        &:hover {
+                            color: $yellow-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ================================= BANNER ================================= 
+.banner-content {
+    .banner-img {
+        background-image: url(../images/asset\ 7.webp);
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -1;
+
+        &::before {
+            @include aftr();
+            background: linear-gradient(#6bd0ff5b, #6b75ff3d, #59b7ff42);
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+        }
+    }
+    .banner-img1{
+        @extend .banner-img;
+        background-image: url(../images/about-banner.webp);
+    }
+    .banner-text {
+        z-index: 1;
+
+        h3 {
+            color: $white-color;
+            font-weight: 400;
+        }
+    }
+    .about-banner-text{
+        z-index: 1;
+        nav {
+            ul {
+                li {
+                    padding: 5px;
+                    
+                    .home-index, .about-index{
+                        color: $yellow-color;
+                    }
+
+                    a {
+                        color: $white-color;
+                        letter-spacing: 1px;
+                        transition: .5s;
+
+                        &:hover {
+                            color: $yellow-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .search-box{
+        background-color: $bg-color;
+        position: absolute;
+        bottom: -60px;
+        left: 152px;
+        border-radius: 5px;
+
+        form {
+            .row-1 {
+                padding: 15px;
+
+                .col-1 {
+                    margin: 15px;
+
+                    .fa-magnifying-glass {
+                        margin: 2px;
+                    }
+
+                    label {
+                        color: $white-color;
+                    }
+
+                    .btn {
+                        background-color: $yellow-color;
+                        width: 150px;
+                        padding: 20px;
+                        color: $black-color;
+                        border-radius: 5px;
+                    }
+
+                    input,
+                    select {
+                        border: none;
+                        width: 120px;
+                        padding: 10px 0px;
+                        color: $gray-color;
+                        background-color: $bg-color;
+
+                        &::placeholder,
+                        option {
+                            background-color: $bg-color;
+                            color: $gray-color;
+                        }
+                    }
+
+                    .form-focus {
+                        &:focus {
+                            color: $white-color;
+                            background-color: $bg-color;
+                            border-color: $bg-color;
+                            outline: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .home-center, .about-center, .destination-center, .hotels-center{
+        position: absolute;
+        background-color: transparent;
+        bottom: 200px;
+        left: 465px;
+    }
+    .about-center{
+        left: 400px;
+    }
+    .destination-center{
+        left: 300px;
+    }
+    .hotels-center{
+        left: 250px;
+    }
+}
+
+// ================================= DESTINATION ================================= 
+// ================================= HOTELS & RESTAURANT ================================= 
+.sub {
+    text-align: center;
+    line-height: 60px;
+}
+
+.best_desti_hotel {
+    margin-bottom: 10px;
+    .w-4,
+    .w-3 {
+        margin: 10px;
+
+        .destination-img {
+            border-radius: 5px;
+            overflow: hidden;
+
+            .img-0 {
+                width: 100%;
+                scale: 1.2;
+                transition: .5s;
+            }
+        }
+
+        &:hover .img-0 {
+            scale: 1.1;
+        }
+
+        &:hover .price {
+            background-color: $yellow-color;
+        }
+
+        &:hover .desti-name {
+            color: $yellow-color;
+        }
+
+        .destination-text,
+        .stories-text {
+            position: relative;
+            padding-top: 10px;
+
+            h4 {
+                background-color: $white-color;
+                padding: 10px;
+                width: 70px;
+                border-radius: 5px;
+                position: absolute;
+                top: -20px;
+                right: 10px;
+                transition: .5s;
+            }
+
+            p {
+                color: rgba(0, 0, 0, 0.2);
+            }
+
+            h3 {
+                a {
+                    color: $black-color;
+                }
+            }
+
+            .fa-star {
+                color: $yellow-color;
+            }
+        }
+    }
+}
+
+// ================================= GUIDE DEPARTMENT ================================= 
+.guide-gb-color {
+    background-color: $light-bg-color;
+    padding: 100px 0;
+
+    .guid-img {
+        width: 90px;
+    }
+
+    h4,
+    p {
+        padding: 10px 0;
+    }
+}
+
+// ================================= ABOUT TRAVELAND ================================= 
+.about_traveland {
+    .about-main-img {
+        background-image: url(../images/asset\ 8.webp);
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .about-content {
+        padding: 50px 40px 0 40px;
+
+        .about-box1 {
+            padding: 0px 15px;
+
+            h2,
+            p {
+                margin-bottom: 10px;
+            }
+        }
+
+        .about-box2 {
+            .w-2 {
+                background-color: $light-bg-color;
+                width: 230px;
+                height: 200px;
+                margin: 10px 15px 15px 15px;
+            }
+        }
+    }
+}
+
+// ================================= STORIES ================================= 
+.stories {
+    background-color: $light-bg-color;
+    padding-bottom: 100px;
+
+    .sub {
+        padding: 100px 0 100px 0;
+    }
+
+    .best_desti_hotel {
+        .w-3 {
+            .stories-img {
+                width: 100%;
+                height: 300px;
+                border-radius: 2px;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .img-15 {
+                background-image: url(../images/asset\ 15.webp);
+            }
+
+            .img-16 {
+                background-image: url(../images/asset\ 16.webp);
+            }
+
+            .img-17 {
+                background-image: url(../images/asset\ 17.webp);
+            }
+
+            .stories-text {
+                .moved {
+                    position: absolute;
+                    top: -75px;
+                    left: 10px;
+
+                    .one {
+                        margin-right: 5px;
+
+                        span {
+                            font-size: 50px;
+                            font-weight: 300;
+                            color: $yellow-color;
+                        }
+                    }
+
+                    .two {
+                        span {
+                            display: block;
+                            font-weight: 500;
+                            font-size: 13px;
+                            color: rgba($color: #fff, $alpha: 0.8);
+                        }
+                    }
+                }
+
+                h3 {
+                    &:hover a {
+                        color: $yellow-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ================================= CONTACT MENU ================================= 
+.contact-menu{
+    .w-4{
+        padding-bottom: 25px;
+        text-align: center;
+        .contact-border{
+            margin: 0 auto 30px auto;
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #988c8c98;
+            border-radius: 50%;
+            position: relative;
+            a{
+               @include iconset();
+                .fa-solid{
+                    font-size: 30px;
+                    color: $yellow-color;
+                }
+            }
+        }
+        h3{
+            margin-bottom: 10px;
+        }
+        p{
+            a{
+                color: $gray-color;
+                line-height: 25px;
+            }
+        }
+
+    }
+}
+
+// ================================= MAP & FORM ================================= 
+.map-form{
+    .w-2{
+        margin: 25px;
+        &:last-child{
+            padding: 20px;
+            background-color: $light-bg-color;
+        }
+        .frame-map{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .message-form{
+        input, textarea{
+            padding: 20px;
+            border: 1px solid rgb(237, 227, 227);
+            border-radius: 2px;
+            margin: 10px 0;
+            width: 100%;
+            font-family: 'Poppins';
+            &::placeholder{
+                color: rgb(196, 175, 175);
+            }
+        }
+    }
+}
+
+// ================================= SUBSCRIBE ================================= 
+.banner2-img {
+    position: relative;
+    background-image: url(../images/asset\ 7.webp);
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+
+    .Subscribe-text {
+        .subscribe-center{
+            padding: 30px 80px;
+            border-radius: 5px;
+            background-color: $white-color;
+            position: absolute;
+            top: 365px;
+            left: 110px;
+        }
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            padding: 20px;
+
+            input {
+                border: none;
+
+                &:first-child {
+                    background-color: #dddada8b;
+                    width: 600px;
+                    height: 70px;
+                    font-size: 20px;
+                    padding: 10px;
+                    border-radius: 5px 0 0 5px;
+                }
+
+                &:last-child {
+                    width: 100px;
+                    background-color: $yellow-color;
+                    border-radius: 0 5px 5px 0;
+                }
+
+                &::placeholder {
+                    font-size: 20px;
+                    color: $black-color;
+                }
+
+                &:focus {
+                    outline: 0;
+                }
+            }
+        }
+    }
+}
+
+// ================================= FOOTER ================================= 
+footer {
+    padding-top: 120px;
+    background-color: $bg-color;
+
+    hr {
+        margin: 20px auto;
+        width: 1140px;
+        opacity: .4;
+    }
+
+    .footer-1 {
+        .w-4 {
+            a {
+                color: $white-color;
+                font-size: 20px;
+                font-weight: 900;
+            }
+        }
+    }
+
+    .footer-2 {
+        .w-4 {
+            &:first-child {
+                p {
+                    line-height: 30px;
+                    font-weight: 500;
+                    width: 85%;
+                }
+
+                ul {
+                    padding-top: 30px;
+
+                    li {
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        position: relative;
+                        margin: 10px;
+                        background-color: rgba($color: #fff, $alpha: 0.06);
+
+                        a {
+                            @include iconset();
+
+                            .fa-brands {
+                                font-size: 30px;
+                                color: $white-color;
+                                transition: .5s;
+                            }
+
+                            &:hover .fa-brands {
+                                color: $yellow-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                ul {
+                    li {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+
+            &:last-child {
+                ul {
+                    li {
+                        padding: 10px;
+
+                        .text {
+                            display: table-cell;
+                        }
+
+                        a {
+                            color: $white-color;
+                        }
+
+                        i {
+                            font-size: 25px;
+                            padding-right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
